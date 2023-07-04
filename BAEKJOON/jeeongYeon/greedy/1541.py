@@ -18,10 +18,10 @@
 # + 이후 - : 괄호가 +로 묶이므로 값변화 x
 # - 이후 + : 괄호안의 연산값이 음수로 바뀜
 # 따라서 - + + - 사이의 +항들까지를 괄호로 묶어 연산하는 방안
+# 00002 이런 숫자들 때문에 eval안쓰고 해봄
 
 import re
 ## method
-''' eval()사용 안할거면,
 def str2oper(strn): # 숫자 + 연산자 조합의 str타입을 연산해주는 메소드
     opers = [s for s in strn if s in ('+','-')]
     nums = list(map(int ,re.sub( '[+,-]', ' ', strn).split()))
@@ -32,15 +32,13 @@ def str2oper(strn): # 숫자 + 연산자 조합의 str타입을 연산해주는 
         else :
             result -= nums[i+1]
     return str(result)
-'''
 
 def sol(oper):
     for i in range(len(oper)):
-        if '+' in oper[i] :
-            oper[i] = str(eval(oper[i]))
+        oper[i] = str2oper(oper[i])
     result = '-'.join(oper)
     
-    return eval(result)
+    return str2oper(result)
 ## input
 dif_oper = input().split('-') # 원소끼리 -연산
 
