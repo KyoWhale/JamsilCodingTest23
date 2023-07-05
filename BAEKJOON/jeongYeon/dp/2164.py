@@ -21,32 +21,17 @@ N이 주어졌을 때, 제일 마지막에 남게 되는 카드를 구하는 프
 출력
 첫째 줄에 남게 되는 카드의 번호를 출력한다.
 '''
-#feedback
-# 점프거리 체크를 잘못함.
+from collections import deque
 
-import math
-
-## method
 def sol(n):
-    if n == 1 :
-        return 1
-    i = 0
-    fst_elem = 0
+    deq = deque([i+1 for i in range(n)])
 
-    while 1:
-        if n % 2 == 0:
-            fst_elem = 2**i
-        else :
-            fst_elem = 2**i *2
-            # 원소 개수 홀수일 때 , 2**i*2
-            # 짝수일 때,  
-        
-        n = n//2
-        print(i , fst_elem)
-        if n == 1 :
-            break
-        i += 1
-    return fst_elem
+    while len(deq) - 1 :
+        deq.popleft()
+        deq.append(deq.popleft())
+    
+    return deq.pop()
+
 ## input
 N = int(input())
 ## output
