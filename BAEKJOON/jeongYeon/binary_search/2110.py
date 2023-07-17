@@ -13,3 +13,34 @@ C개의 공유기를 N개의 집에 적당히 설치해서, 가장 인접한 두
 첫째 줄에 가장 인접한 두 공유기 사이의 최대 거리를 출력한다.
 '''
 
+## method 
+def sol(n, c):
+    house_coor = sorted(house)
+    minv = 1
+    maxv = house_coor[-1] - house_coor[0] #최대 간격
+
+    while minv <= maxv :
+        opt = (minv + maxv) // 2 # 간격
+        current = house_coor[0]
+        cnt = 1
+
+        for i in range(1,n):
+            if house_coor[i] >= current + opt :
+                current = house_coor[i]
+                cnt += 1
+        
+        if cnt < c : # 간격이 큰 경우
+            maxv = opt -1
+        else : 
+            minv = opt +1
+        
+    return maxv
+
+## input
+import sys
+
+n, c = map(int, input().split())
+house = [int(sys.stdin.readline()) for _ in range(n)]
+
+## output
+print(sol(n,c))

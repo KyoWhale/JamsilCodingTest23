@@ -9,7 +9,7 @@ N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로�
 '''
 
 ## method
-'''
+''' quick은 최악의 경우(모두 역순정렬) O(n^2)이므로 안정성이 떨어짐. 항상 O(nlogn)인 mergesort는 괜찮을 것.
 def quicksort(first,last): # index
     if first < last :
         mid = part(first, last)
