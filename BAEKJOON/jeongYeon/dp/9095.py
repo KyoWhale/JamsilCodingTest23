@@ -49,6 +49,6 @@ def sol(num):
 
 ## input
 n = int(input())
+## output
 for _ in range(n):
     print(sol(int(input())))
-## output

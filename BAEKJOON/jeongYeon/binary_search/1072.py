@@ -25,14 +25,11 @@ X와 Y가 주어졌을 때, 형택이가 게임을 최소 몇 번 더 해야 Z�
 ## method
 def sol(x,y):
     import math
-    init_z = y *100 // x #??? 이렇게 바꾸니까 맞다; 
+    init_z = y *100 // x 
     if init_z in (99,100):
         return -1
     
     max = math.ceil(((init_z+1) * x - 100 * y) / (99 - init_z))
-    
-    # while int((y + max-1) / (x + max-1) * 100) > init_z:
-    #     max -= 1
     
     return max
     
