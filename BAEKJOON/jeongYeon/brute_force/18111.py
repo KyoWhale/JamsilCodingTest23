@@ -24,8 +24,6 @@ lvalue는 세로 N, 가로 M 크기의 집터를 골랐다. 집터 맨 왼쪽 �
 def sol(n,m,b):
     record = []
     opt_t, opt_h= float('inf'), 0# opt_h는 target에서 정함
-    # minv = min([min(ground[r]) for r in range(n)])
-    # maxv = max([max(ground[r]) for r in range(n)])
     
     for target in range(257): # 최대 땅의 높이  
         used, taken = 0,0, 
@@ -38,9 +36,7 @@ def sol(n,m,b):
                     taken +=  cur_height-target
                 else: 
                     used += target-cur_height # 벽돌 쌓기
-        
         if used > b+taken : continue  
-
         # 평탄화 완료
         used_time = used + 2*taken
         if opt_t >= used_time: 
@@ -50,6 +46,7 @@ def sol(n,m,b):
     print(opt_t, opt_h)
     return
                 
+
 
 ## input
 import sys
