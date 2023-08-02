@@ -14,7 +14,7 @@
 ## method
 def check_p(num):
     for i in range(len(str(num))//2):
-            if str(num)[i] != str(num)[-(i+1)]:
+            if str(num)[i] != str(num)[-(i+1)]: # [::-1]
                 return False
     return True
 

@@ -36,7 +36,6 @@ def sol(paths, k, x):
                 updated_sp[adj] = updated_sp[visit] + 1
                 will_visit.append(adj)
     updated_sp = dict(sorted(updated_sp.items(), key = lambda x : x[0]))
-    
     if k not in updated_sp.values():
         return print(-1)
     
